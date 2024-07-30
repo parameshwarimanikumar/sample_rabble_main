@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Response Display</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="api-response"></div>
+
+    <script>
+        $(document).ready(function(){
+            // Make an AJAX GET request to your API endpoint
+            $.ajax({
+                url: 'http://127.0.0.1:8000/admin/login/?next=/admin/', 
+                type: 'GET',
+                success: function(response) {
+                    // Display the API response in the 'api-response' div
+                    $('#api-response').html(response);
+                },
+                error: function(xhr, errmsg, err) {
+                    // Handle errors
+                    console.log(xhr.status + ": " + xhr.responseText); // Log error message
+                    $('#api-response').html('Error: Failed to fetch data from the API.'); // Display error message
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

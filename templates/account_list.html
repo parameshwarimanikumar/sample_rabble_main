@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+</head>
+<body>
+    <center><h1>User List</h1>
+    <table border="1" id="account-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for account in accounts %}
+            <tr>
+                <td>{{ account.id }}</td>
+                <td>{{ account.email }}</td>
+                <td>{{ account.mobile }}</td>
+                <!-- Render other fields similarly -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+</body>
+</html>
